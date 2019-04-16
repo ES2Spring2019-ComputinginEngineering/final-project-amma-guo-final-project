@@ -9,7 +9,7 @@ import numpy as np
 import csv
 
 def readdatafile():
-    csv_file = open('Parkinsonsdiseasedataonlyz.csv')
+    csv_file = open('Parkinsonsdiseasedataonly.csv')
     total_row = sum(1 for row in csv_file)
     csv_file.seek(0)
     csv_reader = csv.reader(csv_file, delimiter=',')
