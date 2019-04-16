@@ -26,11 +26,12 @@ def readdatafile():
         if line_count == 0:
             print('Column names are '+ str(row))
         elif line_count > 0:
-            height[index] = (float(row[7]))                   #normalizing of data 
-            age[index] = (float(row[6]))
-            weight[index] = (float(row[8]))
-            index += 1
-        line_count += 1
+            if height[index] != Nan or weight[index] != Nan:
+                height[index] = (float(row[7]))                   #normalizing of data 
+                age[index] = (float(row[6]))
+                weight[index] = (float(row[8]))
+                index += 1
+            line_count += 1
     
      #Trimming
   #  blood_glucose = blood_glucose[:index]                                      #trimming data since last element in the arrays is 0
