@@ -6,8 +6,8 @@ Created on Tue Apr 16 15:46:21 2019
 """
 
 import numpy as np
+import matplotlib as plt
 
 
 def readdatafile():
     
-def pot
