@@ -36,8 +36,15 @@ def readdatafile():
         
     
      #Trimming
-     height = height[:index]   
-     age =                              #trimming data since last element in the arrays is 0
+    height = height[:index]   
+    age =   age[:index]
+    weight = age[:index]
+    
+    for i in range(len(height)):
+        if height[index] == nan:
+            height[index] = 0
+    
+                                   #trimming data since last element in the arrays is 0
    # hemoglobin = hemoglobin[:index]
     #classification = classification[:index]
     
