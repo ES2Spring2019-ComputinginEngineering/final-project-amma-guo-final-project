@@ -12,8 +12,13 @@ import numpy as np
 import csv
 import matplotlib.pyplot as plt
 #import researchpy as rp
-#from scipy.interpolate import griddata
-#import pandas as pd
+import scipy.stats as stats
+from mpl_toolkits.mplot3d import Axes3D
+from IPython import get_ipython
+from scipy.stats import norm
+import pandas as pd
+ipython = get_ipython()
+ipython.magic("matplotlib auto")
 
 def readdatafile():
     csv_file = open('Parkinsonsdiseasedataonly.csv')
@@ -42,8 +47,7 @@ def readdatafile():
             index += 1
         
         line_count += 1
-        
-    #normalizing data     #Trimming
+
     height = height[:index]   
     age =   age[:index]
     weight = weight[:index]
@@ -57,36 +61,197 @@ def readdatafile():
 
     return height, weight, age, group, speed
 
+def relationshipbetweenspeedandheight(speed,group,height):
+    plt.figure()
+    plt.plot(speed[group == 1], height[group == 1], 'r.')
+    plt.plot(speed[group == 0], height[group == 0], 'y.')
+    plt.title("Speed vs Height")
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Height")
+    plt.show()
+
+def relationshipbetweenspeedandage(speed,age,group):
+    plt.figure()
+    plt.plot(speed[group == 1], age[group == 1], 'r.')
+    plt.plot(speed[group == 0], age[group == 0], 'y.')
+    plt.title("Speed vs Age")
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Age")
+    plt.show()
+
+def relationshipbetweenspeedandweight(speed,weight,group):
+    plt.figure()
+    plt.plot(speed[group == 1], weight[group == 1], 'r.')
+    plt.plot(speed[group == 0], weight[group == 0], 'y.')
+    plt.title("Speed vs Weight")
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Weight")
+    plt.show()
+
+def Parkinsons_speed_vs_Control_speed(speed):
+    plt.figure()
+    plt.plot(speed[group == 1], 'k.')
+    plt.plot(speed[group == 0], 'r.')
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Count")
+    plt.show()
+
+def ANOVA(speed,group):
+    Fvalue, pvalue1 = stats.f_oneway(speed[group == 1],speed[group == 0])
+    return Fvalue, pvalue1
+
+def ttest(speed,group):
+     t_statistic, pvalue2 = stats.ttest_ind(speed[group ==1], speed[group == 0])
+     return t_statistic, pvalue2
+
+def graphing_3D(speed,height,age,group):
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    ax.scatter(speed[group == 1], height[group == 1], age[group == 1],c ='r', marker = 'o', label = "PD")
+    ax.scatter(speed[group == 0], height[group == 0], age[group == 0],c = 'y', marker = 'o', label = "CO")
+    plt.xlabel("Speed")
+    plt.ylabel("Height")
+    plt.show()
+
+def histogramforPD(speed,group):
+    plt.figure()
+    plt.hist(speed[group == 1],rwidth = 0.95)
+    plt.title("Speed vs Count for Parkinson's Disease")
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Count") 
+    plt.show()
+
+def histogramforControl(speed,group):
+    plt.figure()
+    plt.hist(speed[group == 0], rwidth = 0.95)
+    plt.title("Speed vs Count for Control Group")
+    plt.xlabel("Walking Speed")
+    plt.ylabel("Count") 
+    plt.show()
+
+def normaldistributionforPD(speed,group):
+    plt.figure()
+    plt.hist(speed[group == 1], normed = True)
+    xt = plt.xticks()[0]
+    xmin, xmax = min(xt), max(xt)
+    lnspc = np.linspace(xmin, xmax, len(speed[group == 1]))
+    mean, std = stats.norm.fit(speed[group == 1])   
+    pdf_g = stats.norm.pdf(lnspc, mean, std) # now get theoretical values in our interval  
+    plt.plot(lnspc, pdf_g, label="Norm") # plot it
+    plt.title("Normal distribution for Parkinson's Disease")
+    
+def normaldistributionforCO(speed,group):
+    plt.figure()
+    plt.hist(speed[group == 0], normed = True)
+    xt = plt.xticks()[0]
+    xmin, xmax = min(xt), max(xt)
+    lnspc = np.linspace(xmin, xmax, len(speed[group == 0]))
+    mean, std = stats.norm.fit(speed[group == 0])   
+    pdf_g = stats.norm.pdf(lnspc, mean, std) # now get theoretical values in our interval  
+    plt.plot(lnspc, pdf_g, label="Norm") # plot it
+    plt.title("Normal Distribution for Control Group")
+    
+
+
+
+
+
+
+    
+    
 height,weight,age, group, speed = readdatafile()
+Parkinsons_speed_vs_Control_speed(speed)
+relationshipbetweenspeedandage(speed,age,group)
+relationshipbetweenspeedandweight(speed,weight,group)
+relationshipbetweenspeedandheight(speed,group,height)
+graphing_3D(speed,height,age,group)
+Fvalue, pvalue1 = ANOVA(speed,group)
+histogramforPD(speed,group)
+histogramforControl(speed,group)
+normaldistributionforPD(speed,group)
+normaldistributionforCO(speed,group)
+t_statistic, pvalue2 = ttest(speed,group)
 
-#new_height = pd.Series(height)
-#new_weight = pd.Series(weight)
-#new_age = pd.Series(age)
-#new_speed = pd.Series(speed)
 
 
 
-#rp.summary_cont(readDataafile())
 
 
-#x = np.corrcoef(speed,group)
-#y = np.cov(age,group)
-#def plotting(height,group, weight):
-#    plt.figure()
-#    plt.plot(weight[group == 1], height[group == 1],'r.',label = "Class 1")          #plots points with class 1 in red
-#    plt.plot(weight[group == 0], height[group == 0], 'y.', label = "Class 0")        #plots points with class 0 in yellow
-#    plt.xlabel("Height")
-#    plt.ylabel("Weight")
-#    plt.legend()
-#    plt.show()
+
+
+#mean, std = norm.fit(speed[group == 1])
 #
-
-#plt.plot(speed[group == 1], height[group == 1], 'r.')
-#plt.plot(speed[group == 0],height[group == 0], 'y.')
+## Plot the histogram.
+#plt.figure()
+#plt.hist(speed[group == 1], bins=25, density=True, alpha=0.6, color='g')
+## Plot the PDF.
+#xmin, xmax = plt.xlim()
+#x = np.linspace(xmin, xmax, 100)
+#p = norm.pdf(x, mean, std)
+#plt.plot(x, p, 'k', linewidth=2)
+#title = "Fit results: mu = %.2f,  std = %.2f" % (mean, std)
+#plt.title(title)
 #plt.show()
+#
+#
+#plt.figure()
+#plt.hist(speed[group == 0], bins=25, density=True, alpha=0.6, color='g')
+## Plot the PDF.
+#xmin, xmax = plt.xlim()
+#x = np.linspace(xmin, xmax, 100)
+#p = norm.pdf(x, mean, std)
+#plt.plot(x, p, 'k', linewidth=2)
+#title = "Fit results: mu = %.2f,  std = %.2f" % (mean, std)
+#plt.title(title)
+#
+#plt.show()
+#
+#data = speed[group==1]
+#plt.figure()
+#plt.hist(data, 
+#         bins = np.arange(data.min(),data.max())+.5,  #dividers at half way point, rwidth-- customizes how it was drawn
+#         rwidth = .75)
+#plt.xlabel("Roll Total")
+#plt.ylabel("Count") 
+#plt.show()
+#
+#myTable = pd.crosstab(index = data, columns = "count")
+#print(myTable)
 
-plt.plot(speed[group == 1],'r.')
-plt.plot(speed[group == 0], 'y.')
-plt.show()
 
+#plt.figure()
+#plt.hist(speed[group == 1], normed = True)
+#xt = plt.xticks()[0]
+#xmin, xmax = min(xt), max(xt)
+#lnspc = np.linspace(xmin, xmax, len(speed[group == 1]))
+#mean, std = stats.norm.fit(speed[group == 1])   
+#pdf_g = stats.norm.pdf(lnspc, mean, std) # now get theoretical values in our interval  
+#plt.plot(lnspc, pdf_g, label="Norm") # plot it
+#
+## exactly same as above
+#ag,bg,cg = stats.gamma.fit(speed[group == 1])  
+#pdf_gamma = stats.gamma.pdf(lnspc, ag, bg,cg)  
+#plt.plot(lnspc, pdf_gamma, label="Gamma")
+#
+## guess what :) 
+#ab,bb,cb,db = stats.beta.fit(speed[group == 1])  
+#pdf_beta = stats.beta.pdf(lnspc, ab, bb,cb, db)  
+#plt.plot(lnspc, pdf_beta, label="Beta")
+#plt.show()  
+#
+#
+#bins = np.linspace(-5, 5, 30)
+#histogram, bins = np.histogram(speed[group == 1], bins=bins, normed=True)
+#
+#bin_centers = 0.5*(bins[1:] + bins[:-1])
+#
+## Compute the PDF on the bin centers from scipy distribution object
+#pdf = stats.norm.pdf(bin_centers)
+#
+#from matplotlib import pyplot as plt
+#plt.figure(figsize=(6, 4))
+#plt.plot(bin_centers, histogram, label="Histogram of samples")
+#plt.plot(bin_centers, pdf, label="PDF")
+#plt.legend()
+#plt.show()
 
