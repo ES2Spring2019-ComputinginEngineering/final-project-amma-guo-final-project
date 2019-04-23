@@ -9,6 +9,8 @@ Created on Tue Apr 16 16:09:17 2019
 
 import numpy as np
 import csv
+import matplotlib as plt
+
 
 def readdatafile():
     csv_file = open('Parkinsonsdiseasedataonly.csv')
@@ -36,8 +38,8 @@ def readdatafile():
         
     
      #Trimming
-     height = height[:index]   
-     age =                              #trimming data since last element in the arrays is 0
+    height = height[:index]   
+    # age =                              #trimming data since last element in the arrays is 0
    # hemoglobin = hemoglobin[:index]
     #classification = classification[:index]
     
@@ -48,5 +50,3 @@ def readdatafile():
     return height, weight, age
 
 height,weight,age = readdatafile()
-
-#def pot
