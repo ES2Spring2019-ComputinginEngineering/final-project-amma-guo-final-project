@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
+
 Created on Tue Apr 16 16:09:17 2019
 
 @author: ammaagyei
@@ -12,6 +10,7 @@ import numpy as np
 import csv
 import matplotlib.pyplot as plt
 #import researchpy as rp
+
 import scipy.stats as stats
 from mpl_toolkits.mplot3d import Axes3D
 from IPython import get_ipython
@@ -19,6 +18,7 @@ from scipy.stats import norm
 import pandas as pd
 ipython = get_ipython()
 ipython.magic("matplotlib auto")
+
 
 def readdatafile():
     csv_file = open('Parkinsonsdiseasedataonly.csv')
@@ -47,13 +47,14 @@ def readdatafile():
             index += 1
         
         line_count += 1
+    
+     #Trimming
 
     height = height[:index]   
     age =   age[:index]
     weight = weight[:index]
     group = group[:index]
     speed = speed[:index]
-
     
     print('Processed ' +str(line_count)+' lines.')
     print(str(index)+' lines meet conditions.')
@@ -219,6 +220,7 @@ t_statistic, pvalue2 = ttest(speed,group)
 #print(myTable)
 
 
+
 #plt.figure()
 #plt.hist(speed[group == 1], normed = True)
 #xt = plt.xticks()[0]
@@ -254,4 +256,5 @@ t_statistic, pvalue2 = ttest(speed,group)
 #plt.plot(bin_centers, pdf, label="PDF")
 #plt.legend()
 #plt.show()
+
 
