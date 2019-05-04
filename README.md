@@ -15,28 +15,7 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 
 ## File List
 `functions.py` contains all the functions for running our project. Functions include: 
-1. readdatafile
-2. relationshipbetweenspeedandheightforCO    
-3. relationshipbetweenspeedandheightforPD
-4. relationshipbetweenspeedandageforPD
-5. relationshipbetweenspeedandageforCO
-6. relationshipbetweenspeedandweightforCO
-7. relationshipbetweenspeedandweightforPD 
-8. Parkinsons_speed_vs_Control_speed
-9. ANOVA
-10. ttest
-11. graphing_3D
-12. histogramforPD
-13. histogramforControl
-14. normaldistributionforPD
-15. normaldistributionforCO
-16. select
-17. assign
-18. Update
-19. Iterate
-19. graphingKMeans
-20. Venn_diagrams
-21. Statsmodelssummary.
+readdatafile, relationshipbetweenspeedandheightforCO, relationshipbetweenspeedandheightforPD, relationshipbetweenspeedandageforPD, relationshipbetweenspeedandageforCO, relationshipbetweenspeedandweightforCO, relationshipbetweenspeedandweightforPD, Parkinsons_speed_vs_Control_speed, ANOVA, ttest, graphing_3D, histogramforPD, histogramforControl, normaldistributionforPD, normaldistributionforCO, select, assign, Update, Iterate, graphingKMeans, Venn_diagrams, Statsmodelssummary.
 
 `main.py` contains the script. It is the driver and must be run to generate the figures and graphs. 
 
@@ -59,5 +38,5 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 - `graphing KMeans` plots the height, speed and weight points in random colors based on which centroids they are assigned to.
 
 -`Venn_diagrams` generates venn diagrams analyzing the speed of the control group and Parkinson's disease group.
--`Statsmodelssummary` generates a table containing useful statistics such as F-value, Log-likelihood, AIC, BIC, and so on.
+- `Statsmodelssummary` generates a table containing useful statistics such as F-value, Log-likelihood, AIC, BIC, and so on.
 
