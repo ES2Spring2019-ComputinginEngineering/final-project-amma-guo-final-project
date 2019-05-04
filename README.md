@@ -6,8 +6,8 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 
 ## Instructions
 
-**In order to run the script, certain modules have to download using the terminal on the user's computer, type *pip install matplotlib_venn* into your computer terminal.** 
-- Download `Parkinsonsdiseaseonly.csv`, `functions.py` and `main.py` , making sure that they are all in the same folder.
+**In order to run the script, certain modules have to be downloaded using the terminal on the user's computer, type *pip install matplotlib_venn* into your computer terminal.** 
+- After downloading this module, download `Parkinsonsdiseaseonly.csv`, `functions.py` and `main.py` , making sure that they are all in the same folder.
 - Open Spyder Anaconda and open `functions.py` and `main.py`.
 - First run `functions.py`.
 - Run `main.py`
