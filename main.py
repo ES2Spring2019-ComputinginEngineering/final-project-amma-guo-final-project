@@ -4,12 +4,10 @@
 # IMPORT STATEMENTS
 from functions import readdatafile,relationshipbetweenspeedandheightforCO, relationshipbetweenspeedandheightforPD, relationshipbetweenspeedandageforPD, relationshipbetweenspeedandageforCO, relationshipbetweenspeedandweightforCO,relationshipbetweenspeedandweightforPD, Parkinsons_speed_vs_Control_speed, ANOVA, ttest, graphing_3D, histogramforPD,histogramforControl,normaldistributionforPD, normaldistributionforCO, select, assign, Update, Iterate, graphingKMeans, Venn_diagrams, Statsmodelssummary
 import matplotlib.pyplot as plt
-plt.rcParams.update({'figure.max_open_warning': 0})
+plt.rcParams.update({'figure.max_open_warning': 0})     #gets rid of runtime warning preventing my code from plotting more than 20 figures
 
 
 # DEMONSTRATION CODE
-
-
 height,weight,age, group, speed = readdatafile()                                #parses in data and organizes it into arrays
 Parkinsons_speed_vs_Control_speed(speed)                                        #graph Parkinson's disease speed vs Control Group speed
 relationshipbetweenspeedandageforCO(speed,age,group)                            #Graph Speed vs Age for Control
@@ -30,7 +28,7 @@ assignments = assign(centroids,height,speed,age)                                
 new_centroids = Update(group,height,speed,centroids)                            #update location of centroids
 new_centroids,assignments  = Iterate(group,height,speed,centroids,new_centroids)          #iterate through a maximum number and update new location of centroids
 graphingKMeans(speed,height,assignments,group,centroids)                                    #graph clusters on 3-D graph
-Venn_diagrams(speed,group)                                    #Generate Venn Diagrams
+Venn_diagrams(speed,group)                                                      #Generate Venn Diagrams
 Statsmodelssummary()                                                            #Generate summary of results from Statsmodels
 
 
