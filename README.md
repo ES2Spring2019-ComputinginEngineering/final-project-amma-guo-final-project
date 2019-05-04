@@ -42,9 +42,22 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 
 `Parkinsondiseasedataonly.csv` is the csv file containing the data that is being analyzed in the project. Data from this file will be parsed in and organized into arrays.
 
-You can also include useful links, like this one with information about [formatting markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+## Description of Functions
+- `readdatafile()` takes in the data set from the csv file and organizes it into the arrays: speed, height, age, group and weight. This function also normalizes the data since speed, height, weight and age have different scales. The function returns height, speed, weight, age and group. 
 
-You can 
-- Also
-- Make
-- Lists
+- `relationshipbetweenspeedandheightforCO`, `relationshipbetweenspeedandheightforPD`, `relationshipbetweenspeedandageforPD`,  - `relationshipbetweenspeedandageforCO`, `relationshipbetweenspeedandweightforCO`,and `relationshipbetweenspeedandweightforPD` generate plots analyzing the relationship between walking speed and the human characteristics age, height, and weight for both the control group and the Parkinson's Disease group.
+
+- `Parkinsons_speed_vs_Control_speed` plots the walking speed for individuals in the control group and Parkinson's group in different colors so they can be compared visually.
+
+- `ANOVA` and `ttest` are functions that perform statistical tests to determine if there is a significant difference between the control group and the Parkinson's disease group by giving a p-value. If the p-value is less than 0.05, then the groups are significantly different.
+
+- `graphing 3-D` generates a 3-D interactive plot of the data points on 3 axes: height, age and speed.
+- `histogramforPD `, `histogramforControl`, `normaldistributionforPD` and `normaldistributionforCO` generates a plot of the histograms for both groups and fits a normal distribution curve over the histograms to determine if the data is normally distributed.
+
+- The clustering algorithm consists of the `select`, `assign`, `update`, and `iterate` functions. A random (K,3) centroid is created, new classifications are assigned to the various centroids based on the three features(height, speed, age)taken in,and the locations of the centroids are updated by finding the mean of all the height points, speed points and age points assigned to a specific centroid. After iterating through the assign and update functions for a maximum number of iterations, the locations of the centroids are updated.
+
+- `graphing KMeans` plots the height, speed and weight points in random colors based on which centroids they are assigned to.
+
+-`Venn_diagrams` generates venn diagrams analyzing the speed of the control group and Parkinson's disease group.
+-`Statsmodelssummary` generates a table containing useful statistics such as F-value, Log-likelihood, AIC, BIC, and so on.
+
