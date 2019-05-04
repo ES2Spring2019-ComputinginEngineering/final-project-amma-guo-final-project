@@ -2,7 +2,12 @@
 #By: Amma Agyei and Tina Guo
 
 # IMPORT STATEMENTS
-from functions import readdatafile,relationshipbetweenspeedandheightforCO, relationshipbetweenspeedandheightforPD, relationshipbetweenspeedandageforPD, relationshipbetweenspeedandageforCO, relationshipbetweenspeedandweightforCO,relationshipbetweenspeedandweightforPD, Parkinsons_speed_vs_Control_speed, ANOVA, ttest, graphing_3D, histogramforPD,histogramforControl,normaldistributionforPD, normaldistributionforCO, select, assign, Update, Iterate, graphingKMeans, Venn_diagrams, Statsmodelssummary
+from functions import (readdatafile,relationshipbetweenspeedandheightforCO, relationshipbetweenspeedandheightforPD,
+relationshipbetweenspeedandageforPD, relationshipbetweenspeedandageforCO, relationshipbetweenspeedandweightforCO,
+relationshipbetweenspeedandweightforPD, Parkinsons_speed_vs_Control_speed, ANOVA, ttest, graphing_3D, histogramforPD,
+histogramforControl,normaldistributionforPD, normaldistributionforCO, select, assign, Update, Iterate, graphingKMeans, 
+Venn_diagrams, Statsmodelssummary)
+
 import matplotlib.pyplot as plt
 plt.rcParams.update({'figure.max_open_warning': 0})     #gets rid of runtime warning preventing my code from plotting more than 20 figures
 
