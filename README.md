@@ -37,6 +37,6 @@ readdatafile, relationshipbetweenspeedandheightforCO, relationshipbetweenspeedan
 
 - `graphing KMeans` plots the height, speed and weight points in random colors based on which centroids they are assigned to.
 
--`Venn_diagrams` generates venn diagrams analyzing the speed of the control group and Parkinson's disease group.
+- `Venn_diagrams` generates venn diagrams analyzing the speed of the control group and Parkinson's disease group.
 - `Statsmodelssummary` generates a table containing useful statistics such as F-value, Log-likelihood, AIC, BIC, and so on.
 
