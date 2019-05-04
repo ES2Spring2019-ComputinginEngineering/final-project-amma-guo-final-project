@@ -19,10 +19,15 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 
 ## Instructions
 
-Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
+** In order to run the script, certain modules have to download using the terminal on the user's computer, type *pip install matplotlib_venn* into your computer terminal. ** 
+- Download `Parkinsonsdiseaseonly.csv`, `functions.py` and `main.py` , making sure that they are all in the same folder.
+- Open Spyder Anaconda and open `functions.py` and `main.py`.
+- First run `functions.py`.
+- Run `main.py`
+             - In order to view the 3-D interactive plot and other figures, it is **necessary** that the console be closed and reopened after running the script to open iPython.
 
 ## File List
-`Functions.py` contains all the functions for running our project. Functions include: 
+`functions.py` contains all the functions for running our project. Functions include: 
 1. readdatafile
 2. relationshipbetweenspeedandheightforCO    
 3. relationshipbetweenspeedandheightforPD
