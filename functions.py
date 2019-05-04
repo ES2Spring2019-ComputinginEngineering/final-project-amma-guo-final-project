@@ -243,7 +243,8 @@ def Update(group,height,speed,centroids):
     K = centroids.shape[0]
     new_centroids = np.zeros((K,3))                                             #generates an empty centroid of size (K,3) made up of zeros.
     for i in range(K):
-        if not len(height[group == i]) == 0  or len(speed[group == i ]) == 0:   #the function loops through this if condition if the length of speed is not 0  for a specific centroid and if the length of height is not 0 for a specific centroid.
+        if not len(height[group == i]) == 0  or len(speed[group == i ]) == 0:   #the function loops through this if condition if the length of speed is not 0  for a specific centroid 
+                                                                                    #and if the length of height is not 0 for a specific centroid.
             new_centroids[i,1] = np.mean(speed[group == i]) 
             new_centroids[i,0] = np.mean(height[group == i])
             new_centroids[i,2] = np.mean(age[group == i])
