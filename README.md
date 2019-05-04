@@ -22,9 +22,29 @@ Parkinson’s Disease patients take shorter steps when they walk and have stiff 
 Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
 
 ## File List
-`Functions.py` contains all the functions for running our project. Functions include: ---readdatafile
--relationshipbetweenspeedandheightforCO,    
--relationshipbetweenspeedandheightforPD,relationshipbetweenspeedandageforPD, relationshipbetweenspeedandageforCO, relationshipbetweenspeedandweightforCO,relationshipbetweenspeedandweightforPD, Parkinsons_speed_vs_Control_speed, ANOVA, ttest, graphing_3D, histogramforPD,histogramforControl,normaldistributionforPD, normaldistributionforCO, select, assign, Update, Iterate, graphingKMeans, Venn_diagrams,and Statsmodelssummary.
+`Functions.py` contains all the functions for running our project. Functions include: 
+1. readdatafile
+2. relationshipbetweenspeedandheightforCO    
+3. relationshipbetweenspeedandheightforPD
+4. relationshipbetweenspeedandageforPD
+5. relationshipbetweenspeedandageforCO
+6. relationshipbetweenspeedandweightforCO
+7. relationshipbetweenspeedandweightforPD 
+8. Parkinsons_speed_vs_Control_speed
+9. ANOVA
+10. ttest
+11. graphing_3D
+12. histogramforPD
+13. histogramforControl
+14. normaldistributionforPD
+15. normaldistributionforCO
+16. select
+17. assign
+18. Update
+19. Iterate
+19. graphingKMeans
+20. Venn_diagrams
+21. Statsmodelssummary.
 
 `main.py` contains the script. It is the driver and will run the code. 
 
