@@ -11,7 +11,6 @@ from sklearn.linear_model import LinearRegression
 import scipy.stats as stats
 from mpl_toolkits.mplot3d import Axes3D
 from IPython import get_ipython
-#from scipy.stats import norm
 import pandas as pd
 import statsmodels.formula.api as smf
 ipython = get_ipython()
