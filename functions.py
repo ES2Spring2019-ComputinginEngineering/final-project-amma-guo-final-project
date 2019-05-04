@@ -47,7 +47,6 @@ def readdatafile():
         line_count += 1
     
      #Trimming
-
     height = height[:index]                                                     #trimming data since last element in the arrays is 0
     age =   age[:index]
     weight = weight[:index]
@@ -99,7 +98,7 @@ def relationshipbetweenspeedandageforPD(speed,age,group):                       
     y = speed[group == 1]
     x = x[:, np.newaxis]
     y = y[:, np.newaxis]
-    model = LinearRegression()
+    model = LinearRegression()                                                  #plot line of best fit
     model.fit(x, y)
     y_pred = model.predict(x)
     plt.plot(x, y_pred, color = 'r')
@@ -118,7 +117,7 @@ def relationshipbetweenspeedandageforCO(speed,age,group):                       
     y = speed[group == 0]
     x = x[:, np.newaxis]
     y = y[:, np.newaxis]
-    model = LinearRegression()
+    model = LinearRegression()                                                  #plot line of best fit
     model.fit(x, y)
     y_pred = model.predict(x)
     plt.plot(x, y_pred, color = 'r')
